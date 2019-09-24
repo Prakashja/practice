@@ -1,0 +1,31 @@
+1. https://serverfault.com/questions/330532/xvda1-is-100-full-what-is-it-how-to-fix
+
+
+sudo du -x / | sort -n | tail -40
+
+sudo yum install baobab
+
+sudo baobab /
+
+sudo yum install tree
+
+tree -x 
+
+tree -LP 1 /dev/xvda
+
+df -h
+
+netstat -na | grep
+
+https://stackoverflow.com/questions/50105414/scp-command-fails-to-copy-host-key-verification-failed
+
+scp -v  -o "StrictHostKeyChecking=no" -i 
+
+
+(ssh tunnel?) Access remote server with private IP through a *DIFFERENT* server with public IP ?
+
+ref : https://serverfault.com/questions/530787/ssh-tunnel-access-remote-server-with-private-ip-through-a-different-server
+ssh -L 8080:private.remoteserver:8080 remoteserver
+
+a=5
+b=15

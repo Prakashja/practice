@@ -1,0 +1,43 @@
+install docker 
+
+sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+  
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+  
+sudo yum install docker-ce docker-ce-cli containerd.io
+
+sudo systemctl start docker
+
+sudo systemctl status docker
+
+sudo docker run -dit --name my-apache-app -p 8080:80 -v "admin":/usr/local/apache2/htdocs/ httpd:2.4
+
+sudo docker run --name some-nginx -d -p 9090:80 nginx
+
+sudo docker run --name some-drupal -p 6060:80 -d drupal
+
+sudo docker run -it --rm -p 8888:8080 tomcat:8.0
+
+https://www.middlewareinventory.com/blog/docker-tomcat-example-dockerfile-sample/
+
+docker rmi $(docker images -a -q)
+
+
+docker run – Runs a command in a new container.
+docker start – Starts one or more stopped containers
+docker stop – Stops one or more running containers
+docker build – Builds an image form a Docker file
+docker pull – Pulls an image or a repository from a registry
+docker push – Pushes an image or a repository to a registry
+docker export – Exports a container’s filesystem as a tar archive
+docker exec – Runs a command in a run-time container
+docker search – Searches the Docker Hub for images
+docker attach – Attaches to a running container
+docker commit – Creates a new image from a container’s changes
+
+
+https://afourtech.com/guide-docker-commands-examples/

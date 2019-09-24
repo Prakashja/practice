@@ -1,0 +1,57 @@
+Ref: https://tecadmin.net/tutorial/docker/docker-compose-example/
+
+Step 1 – Create Directory Structure
+
+mkdir dockercompose && cd dockercompose
+mkdir webapp
+echo "<h2>It Works</h2>" > webapp/index.html
+
+Step 2 – Create Dockerfile for Webapp
+
+vim  webapp/Dockerfile
+
+FROM tecadmin/ubuntu-ssh:16.04
+
+RUN apt-get update \
+   && apt-get install -y apache2
+
+COPY index.html /var/www/html/
+WORKDIR /var/www/html
+CMD ["apachectl", "-D", "FOREGROUND"]
+EXPOSE 80
+
+Step 3 – Create Docker Compose File
+
+version: '3'
+services:
+  db:
+     image: mysql
+     container_name: mysql_db
+     restart: always
+     environment:
+        - MYSQL_ROOT_PASSWORD="secret"
+  web:
+    image: apache
+    build: ./webapp
+    depends_on:
+       - db
+    container_name: apache_web
+    restart: always
+    ports:
+      - "8080:80"
+      
+Step 4 – Build Webapp Image
+
+docker-compose build
+
+
+Step 5 – Launch Docker Containers
+
+docker-compose up -d
+
+Step 6 – Update Content in Web Application
+
+echo "Welcome to Docker Compose Tutorial" >> webapp/index.html
+
+docker-compose build
+docker-compose up -d
