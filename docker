@@ -26,7 +26,6 @@ https://www.middlewareinventory.com/blog/docker-tomcat-example-dockerfile-sample
 
 docker rmi $(docker images -a -q)
 
-
 docker run – Runs a command in a new container.
 docker start – Starts one or more stopped containers
 docker stop – Stops one or more running containers
