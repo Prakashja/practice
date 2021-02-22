@@ -20,7 +20,6 @@ add maven-deploy-plugin
 
 mvn clean package deploy 
 
-
 <code>
    
 output:
