@@ -14,7 +14,6 @@ java -jar my-app-1.0-SNAPSHOT.jar
 output:  Hello World!
 <code>
  
- 
 publish artifact to jfro
 https://medium.com/@anusha.sharma3010/integrating-jenkins-with-artifactory-6d18974d163d
 add maven-deploy-plugin
